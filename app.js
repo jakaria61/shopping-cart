@@ -1,24 +1,24 @@
 document.getElementById('phone-plus').addEventListener('click', function () {
 
-    getUpdate('plus');
+    getUpdate('plus', 'phone-number', 'phone-total', 1219);
     calculate();
 
 
 })
 document.getElementById('phone-minus').addEventListener('click', function () {
 
-    getUpdate('minus');
+    getUpdate('minus', 'phone-number', 'phone-total', 1219);
     calculate();
 
 
 })
 document.getElementById('case-plus').addEventListener('click', function () {
-    getUpdate('plus');
-    total('input-number');
+    getUpdate('plus', 'input-number', 'case-total', 59);
+    total('input-number', 59);
     calculate();
 })
 document.getElementById('case-minus').addEventListener('click', function () {
-    getUpdate('minus');
+    getUpdate('minus', 'input-number', 'case-total', 59);
     total('input-number', 59);
     calculate();
 })
@@ -42,6 +42,11 @@ function total(product, price) {
     const inputNumber = inputValue.value;
     let total = inputNumber * price;
     return total;
+}
+function getInputValue(product) {
+    const phoneInput = document.getElementById(product);
+    const phoneNumber = parseInt(phoneInput.value);
+    return phoneNumber;
 }
 
 function calculate() {
